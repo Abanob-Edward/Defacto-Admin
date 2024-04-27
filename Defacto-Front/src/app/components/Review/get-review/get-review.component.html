@@ -1,0 +1,68 @@
+<!-- <div class="container pt-3">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Review List</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Product Name</th>
+            <th>Customer Name</th>
+            <th>Review Message</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let review of reviewResponse.entities">
+            <td>{{ review.productTitle }}</td>
+            <td>{{ review.customerName }}</td>
+            <td>{{ review.reviewMessage }}</td>
+            <td>{{ review.reviewRate }}/5</td>
+            <td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+<div class="container pt-3">
+  <div class="card">
+     <div class="card-header">
+       <h3 class="card-title">Review List</h3>
+     </div>
+     <div class="card-body">
+       <table class="table table-striped">
+         <thead class="thead-dark">
+           <tr>
+             <th>Product Name</th>
+             <th>Customer Name</th>
+             <th>Review Message</th>
+             <th>Rating</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let review of reviewResponse.entities">
+             <td style="width: 40%;">{{ review.productTitle }}</td>
+             <td>{{ review.customerName }}</td>
+             <td>{{ review.reviewMessage }}</td>
+             <td>
+              <span *ngFor="let star of [].constructor(review.reviewRate ?? 0); let i = index">
+                <i class="fas fa-star"></i>
+              </span>
+              <span *ngFor="let star of [].constructor(5 - (review.reviewRate ?? 0)); let i = index">
+                <i class="far fa-star"></i>
+              </span>
+           </td>
+             <!-- <td>
+               any action button
+             </td> -->
+           </tr>
+         </tbody>
+       </table>
+     </div>
+  </div>
+ </div>
+ 

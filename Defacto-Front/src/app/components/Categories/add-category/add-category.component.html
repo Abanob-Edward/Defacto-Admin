@@ -1,0 +1,314 @@
+<!-- <div class="container" style="margin-top: 70px;">
+   <div class="row">
+      <div class="col-sm-8 offset-sm-2">
+        <form (submit)="addCategory()">
+          <div class="form-group">
+            <label for="name">Category Name</label>
+            <input [(ngModel)]="category.name" type="text" name="name" class="form-control" id="name" placeholder="Enter category name">
+          </div>
+          <div class="form-group">
+            <label for="subCategory">Subcategory</label>
+            <select [(ngModel)]="category.subCategory" name="subCategory" class="form-control" id="subCategory">
+               <option *ngFor="let subCategory of getSubCategories()" [value]="subCategory.value">{{ subCategory.name }}</option>
+            </select>
+           </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea [(ngModel)]="category.description" name="description" class="form-control" id="description" placeholder="Enter description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="categoryImage">Category Image</label>
+            <input type="file" (change)="onFileSelected($event)" name="categoryImage" class="form-control-file" id="categoryImage">
+          </div>
+          <button type="submit" class="btn btn-primary">Add Category</button>
+        </form>
+      </div>
+   </div>
+  </div>
+   -->
+
+
+
+<!-- <div class="container-fluid p-4" >
+    <div class="row">
+       <div class="col-sm-8 offset-sm-2">
+         <form (submit)="addCategory()">
+           <div class="form-group">
+             <label for="name" class="p-2">Category Name</label>
+             <input [(ngModel)]="category.name" type="text" name="name" class="form-control" id="name" >
+           </div>
+           <div class="form-group">
+             <label for="subCategory" class="p-2">Subcategory</label>
+             <select [(ngModel)]="category.subCategory" name="subCategory" class="form-control" id="subCategory">
+                <option *ngFor="let subCategory of getSubCategories()" [value]="subCategory.value">{{ subCategory.name }}</option>
+             </select>
+            </div>
+           <div class="form-group">
+             <label for="description" class="p-2">Description</label>
+             <textarea [(ngModel)]="category.description" name="description" class="form-control" id="description"></textarea>
+           </div>
+
+           <div class="form-group">
+             <label for="ar_Name" class="p-2">Arabic Name</label>
+             <input [(ngModel)]="category.ar_Name" type="text" name="ar_Name" class="form-control" id="ar_Name" >
+           </div>
+           <div class="form-group">
+             <label for="ar_Description" class="p-2">Arabic Description</label>
+             <textarea [(ngModel)]="category.ar_Description" name="ar_Description" class="form-control" id="ar_Description" ></textarea>
+           </div>
+           <div class="form-group">
+            <label for="categoryImage" class="my-2 d-block">Category Image</label>
+            <input type="file" (change)="onFileSelected($event)" name="categoryImage" class="form-control-file" id="categoryImage">
+          </div>
+           <button  type="submit" class="btn btn-primary mt-3">Add Category</button>
+         </form>
+       </div>
+    </div>
+ </div> -->
+
+
+<!-- <div class="container-fluid p-4">
+  <div class="row">
+     <div class="col-12 col-md-8 offset-md-2">
+       <form (submit)="addCategory()">
+         <div class="form-group">
+           <label for="name">Category Name</label>
+           <input [(ngModel)]="category.name" type="text" name="name" class="form-control" id="name">
+         </div>
+         <div class="form-group">
+           <label for="subCategory">Subcategory</label>
+           <select [(ngModel)]="category.subCategory" name="subCategory" class="form-control" id="subCategory">
+             <option *ngFor="let subCategory of getSubCategories()" [value]="subCategory.value">{{ subCategory.name }}</option>
+           </select>
+         </div>
+         <div class="form-group">
+           <label for="description">Description</label>
+           <textarea [(ngModel)]="category.description" name="description" class="form-control" id="description"></textarea>
+         </div>
+         <div class="form-group">
+           <label for="ar_Name">Arabic Name</label>
+           <input [(ngModel)]="category.ar_Name" type="text" name="ar_Name" class="form-control" id="ar_Name">
+         </div>
+         <div class="form-group">
+           <label for="ar_Description">Arabic Description</label>
+           <textarea [(ngModel)]="category.ar_Description" name="ar_Description" class="form-control" id="ar_Description"></textarea>
+         </div>
+         <div class="form-group mt-1">
+           <label for="categoryImage">Category Image</label>
+           <input type="file" (change)="onFileSelected($event)" name="categoryImage" class="form-control-file" id="categoryImage">
+         </div>
+         <button type="submit" class="btn btn-primary mt-2">Add Category</button>
+       </form>
+       <button class="btn btn-secondary mt-3" (click)="goBack()">Back</button>
+     </div>
+  </div>
+ </div>
+  -->
+
+<!-- <div class="container p-4">
+  <div class=" ">
+    <h5>Add Category</h5>
+
+    <form (submit)="addCategory()">
+      <div class="form-group ">
+        <label class="my-2" for="name">Category Name</label>
+        <input [(ngModel)]="category.name" type="text" name="name" class="form-control" id="name">
+      </div>
+      <div class="form-group">
+        <label class="my-2" for="subCategory">Subcategory</label>
+        <select [(ngModel)]="category.subCategory" name="subCategory" class="form-control" id="subCategory">
+          <option *ngFor="let subCategory of getSubCategories()" [value]="subCategory.value">{{ subCategory.name }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="my-2" for="description">Description</label>
+        <textarea [(ngModel)]="category.description" name="description" class="form-control"
+          id="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="my-2" for="ar_Name">Arabic Name</label>
+        <input [(ngModel)]="category.ar_Name" type="text" name="ar_Name" class="form-control" id="ar_Name">
+      </div>
+      <div class="form-group">
+        <label class="my-2" for="ar_Description">Arabic Description</label>
+        <textarea [(ngModel)]="category.ar_Description" name="ar_Description" class="form-control"
+          id="ar_Description"></textarea>
+      </div>
+      <div class="form-group mt-1">
+        <label class="my-2" for="categoryImage">Category Image</label>
+        <input type="file" (change)="onFileSelected($event)" name="categoryImage" class="form-control-file"
+          id="categoryImage">
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">Add</button>
+    </form>
+    <button class="btn btn-secondary mt-3" (click)="goBack()">Back</button>
+  </div>
+</div> -->
+
+<!-- <div class="container p-4">
+  <div class=" ">
+    <h5>Add Category</h5>
+
+    <form (submit)="addCategory()" #categoryForm="ngForm">
+      <div class="row">
+        <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="name">Category Name</label>
+          <input #categoryName="ngModel" [(ngModel)]="category.name" required type="text" name="name"
+            class="form-control" id="name">
+          <div class="alert alert-danger" *ngIf="categoryName.invalid && (categoryName.dirty || categoryName.touched)">
+            <span *ngIf="categoryName.errors?.['required']">
+              Category Name is required.
+            </span>
+          </div>
+        </div>
+        <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="ar_Name">Arabic Name</label>
+          <input required #ArabicName="ngModel" [(ngModel)]="category.ar_Name" type="text" name="ar_Name"
+            class="form-control" id="ar_Name">
+          <div class="alert alert-danger" *ngIf="ArabicName.invalid && (ArabicName.dirty || ArabicName.touched)">
+            <span *ngIf="ArabicName.errors?.['required']">
+              Arabic Name is required.
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="subCategory">Subcategory</label>
+          <select required #subcategory="ngModel" [(ngModel)]="category.subCategory" name="subCategory"
+            class="form-control" id="subCategory">
+            <option *ngFor="let subCategory of getSubCategories()" [value]="subCategory.value">{{ subCategory.name }}
+            </option>
+          </select>
+          <div class="alert alert-danger" *ngIf="subcategory.invalid && (subcategory.dirty || subcategory.touched)">
+            <span *ngIf="subcategory.errors?.['required']">
+              Subcategory is required.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="description">Description</label>
+          <textarea required #Description="ngModel" [(ngModel)]="category.description" name="description"
+            class="form-control" id="description"></textarea>
+          <div class="alert alert-danger" *ngIf="Description.invalid && (Description.dirty || Description.touched)">
+            <span *ngIf="Description.errors?.['required']">
+              Description is required.
+            </span>
+          </div>
+        </div>
+        <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="ar_Description">Arabic Description</label>
+          <textarea required #ArabicDescription="ngModel" [(ngModel)]="category.ar_Description" name="ar_Description"
+            class="form-control" id="ar_Description"></textarea>
+          <div class="alert alert-danger"
+            *ngIf="ArabicDescription.invalid && (ArabicDescription.dirty || ArabicDescription.touched)">
+            <span *ngIf="ArabicDescription.errors?.['required']">
+              Arabic Description is required.
+            </span>
+          </div>
+        </div>
+        <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="categoryImage">Category Image</label>
+          <input required type="file" (change)="onFileSelected($event)" name="categoryImage" class="form-control-file"
+            id="categoryImage">
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <button [disabled]="!categoryForm.valid" type="submit" class="btn btn-primary d-inline me-3 col-2">Add</button>
+        <button class="btn btn-secondary d-inline  col-2" (click)="goBack()">Back</button>
+      </div>
+    </form>
+  </div>
+
+</div> -->
+
+<div class="container p-4">
+  <div class=" ">
+    <h5>Add Category</h5>
+
+    <form (submit)="addCategory()" #categoryForm="ngForm">
+      <div class="row">
+        <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="name">Category Name</label>
+          <input #categoryName="ngModel" [(ngModel)]="category.name" required type="text" name="name"
+            class="form-control" id="name">
+          <div class="alert alert-danger" *ngIf="categoryName.invalid && (categoryName.dirty || categoryName.touched)">
+            <span *ngIf="categoryName.errors?.['required']">
+              Category Name is required.
+            </span>
+          </div>
+        </div>
+        <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="ar_Name">Arabic Name</label>
+          <input required #ArabicName="ngModel" [(ngModel)]="category.ar_Name" type="text" name="ar_Name"
+            class="form-control" id="ar_Name">
+          <div class="alert alert-danger" *ngIf="ArabicName.invalid && (ArabicName.dirty || ArabicName.touched)">
+            <span *ngIf="ArabicName.errors?.['required']">
+              Arabic Name is required.
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="subCategory">Subcategory</label>
+          <select required #subcategory="ngModel" [(ngModel)]="category.subCategory" name="subCategory"
+            class="form-control" id="subCategory">
+            <option *ngFor="let subCategory of getSubCategories()" [value]="subCategory.value">{{ subCategory.name }}
+            </option>
+          </select>
+          <div class="alert alert-danger" *ngIf="subcategory.invalid && (subcategory.dirty || subcategory.touched)">
+            <span *ngIf="subcategory.errors?.['required']">
+              Subcategory is required.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="description">Description</label>
+          <textarea required #Description="ngModel" [(ngModel)]="category.description" name="description"
+            class="form-control" id="description"></textarea>
+          <div class="alert alert-danger" *ngIf="Description.invalid && (Description.dirty || Description.touched)">
+            <span *ngIf="Description.errors?.['required']">
+              Description is required.
+            </span>
+          </div>
+        </div>
+        <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="ar_Description">Arabic Description</label>
+          <textarea required #ArabicDescription="ngModel" [(ngModel)]="category.ar_Description" name="ar_Description"
+            class="form-control" id="ar_Description"></textarea>
+          <div class="alert alert-danger"
+            *ngIf="ArabicDescription.invalid && (ArabicDescription.dirty || ArabicDescription.touched)">
+            <span *ngIf="ArabicDescription.errors?.['required']">
+              Arabic Description is required.
+            </span>
+          </div>
+        </div>
+        <!-- <div class="form-group col-md-4 mb-3">
+          <label class="my-2" for="categoryImage">Category Image</label>
+          <input required type="file" (change)="onFileSelected($event)" name="categoryImage" class="form-control-file"
+            id="categoryImage">
+          <img *ngIf="selectedImageUrl" [src]="selectedImageUrl" alt="Selected Image 1" class="img-thumbnail"
+            height="100px" width="100px">
+
+        </div> -->
+        <div class="form-group col-md-4 ">
+          <label for="categoryImage" class="custom-file-upload my-5">Image</label>
+          <input type="file" id="categoryImage" (change)="onFileSelected($event)" required>
+          <img *ngIf="selectedImageUrl" [src]="selectedImageUrl" alt="Selected Image 1" class="img-thumbnail ms-2"
+            height="100px" width="100px">
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <button [disabled]="!categoryForm.valid" type="submit" class="btn btn-success d-inline me-3 col-2">Add</button>
+        <button class="btn btn-secondary d-inline  col-2" (click)="goBack()">Back</button>
+      </div>
+    </form>
+  </div>
+
+</div>

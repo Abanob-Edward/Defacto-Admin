@@ -1,0 +1,134 @@
+<div class="container p-4">
+  <h5 class="mb-4">Add New User</h5>
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+    <div class="row">
+      <!-- User Name -->
+      <div class="col-md-4 mb-3">
+        <label for="userName" class="form-label">User Name</label>
+        <input #username="ngModel" type="text" id="userName" name="userName" class="form-control" required
+          [(ngModel)]="newAccount.userName" minlength="3">
+        <div class="alert alert-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
+          <span *ngIf="username.errors?.['required']">
+            User Name is required.
+          </span>
+          <span *ngIf="username.errors?.['minlength']">
+            User Name must be at least 3 characters long.
+          </span>
+        </div>
+      </div>
+      <!-- Email -->
+      <div class="col-md-4 mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input #email1="ngModel" type="email" id="email" name="email" class="form-control"
+          [(ngModel)]="newAccount.email" required pattern="">
+        <div class="alert alert-danger" *ngIf="email1.invalid && (email1.dirty || email1.touched)">
+          <span *ngIf="email1.errors?.['required']">Email is required.</span>
+          <span class="error" *ngIf="email1.errors?.['pattern']">Email is not valid.</span>
+        </div>
+      </div>
+      <!-- Role -->
+      <div class="col-md-4 mb-3">
+        <label for="role" class="form-label">Role</label>
+        <select #role="ngModel" id="role" name="role" class="form-select" [(ngModel)]="newAccount.roleName" required>
+          <option *ngFor="let role of roles" [value]="role.name">{{role.name}}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="role.invalid && (role.dirty || role.touched)">
+          Role is required.
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <!-- Password -->
+      <div class="col-md-4 mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input #password="ngModel" type="password" id="password" name="password" class="form-control" required
+          minlength="7" [(ngModel)]="newAccount.password">
+        <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+          <span *ngIf="password.errors?.['required']">
+            Password is required.
+          </span>
+          <span *ngIf="password.errors?.['minlength']">
+            Password must be at least 7 characters long.
+          </span>
+        </div>
+      </div>
+
+      <!-- Street Address -->
+      <div class="col-md-4 mb-3">
+        <label for="streetAddress" class="form-label">Street Address</label>
+        <input #streetAddress="ngModel" type="text" id="streetAddress" name="streetAddress" class="form-control"
+          required minlength="3" [(ngModel)]="newAccount.streetAddress">
+        <div class="alert alert-danger" *ngIf="streetAddress.invalid && (streetAddress.dirty || streetAddress.touched)">
+          <span *ngIf="streetAddress.errors?.['required']">
+            Street Address is required.
+          </span>
+          <span *ngIf="streetAddress.errors?.['minlength']">
+            Street Address must be at least 3 characters long.
+          </span>
+        </div>
+      </div>
+      <!-- City -->
+      <div class="col-md-4 mb-3">
+        <label for="city" class="form-label">City</label>
+        <input #city="ngModel" type="text" id="city" name="city" class="form-control" required minlength="3"
+          [(ngModel)]="newAccount.city">
+        <div class="alert alert-danger" *ngIf="city.invalid && (city.dirty || city.touched)">
+          <span *ngIf="city.errors?.['required']">
+            City is required.
+          </span>
+          <span *ngIf="city.errors?.['minlength']">
+            City must be at least 3 characters long.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- State -->
+      <div class="col-md-4 mb-3">
+        <label for="state" class="form-label">State</label>
+        <input #state="ngModel" type="text" id="state" name="state" class="form-control" required minlength="3"
+          [(ngModel)]="newAccount.state">
+        <div class="alert alert-danger" *ngIf="state.invalid && (state.dirty || state.touched)">
+          <span *ngIf="state.errors?.['required']">
+            State is required.
+          </span>
+          <span *ngIf="state.errors?.['minlength']">
+            State must be at least 3 characters long.
+          </span>
+        </div>
+      </div>
+
+      <!-- Zip Code -->
+      <div class="col-md-4 mb-3">
+        <label for="zipCode" class="form-label">Zip Code</label>
+        <input type="text" id="zipCode" name="zipCode" class="form-control" [(ngModel)]="newAccount.zipCode">
+      </div>
+      <!-- Country -->
+      <div class="col-md-4 mb-3">
+        <label for="country" class="form-label">Country</label>
+        <input #country="ngModel" type="text" id="country" name="country" class="form-control" required minlength="3"
+          [(ngModel)]="newAccount.country">
+        <div class="alert alert-danger" *ngIf="country.invalid && (country.dirty || country.touched)">
+          <span *ngIf="country.errors?.['required']">
+            Country is required.
+          </span>
+          <span *ngIf="country.errors?.['minlength']">
+            Country must be at least 3 characters long.
+          </span>
+        </div>
+      </div>
+
+    </div>
+    <!-- Submit Buttons -->
+    <div class="mt-5">
+      <button type="submit" class="btn btn-success me-3 col-2" [disabled]="!userForm.form.valid">Add</button>
+      <a routerLink="/GetAllUsers" class="btn btn-secondary col-2">Cancel</a>
+
+    </div>
+
+  </form>
+
+
+</div>

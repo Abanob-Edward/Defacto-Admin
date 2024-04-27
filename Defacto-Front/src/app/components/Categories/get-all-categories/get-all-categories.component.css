@@ -1,0 +1,22 @@
+.action-tooltip {
+    position: relative;
+  }
+  
+  .action-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .action-tooltip:hover::after {
+    opacity: 1;
+  }

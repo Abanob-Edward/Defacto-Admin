@@ -1,0 +1,39 @@
+<div class="container">
+  <div *ngIf="orders.length > 0; else noOrders">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+          <th>State</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order?.customerName }}</td>
+          <td>{{ order?.id }}</td>
+          <td>{{ order?.dateTime | date:'short' }}</td>
+          <td>{{ order?.quantity }}</td>
+          <td>{{ order?.totalPrice }}</td>
+          <td>{{ getStatusName(order?.state) }}</td>
+          <td>
+            <button class="btn btn-success me-2" [routerLink]="['/OrderStatus', order.id]"
+              [queryParams]="{ state: order.state }">Change Status</button>
+            <button class="btn btn-dark" [routerLink]="['/GetItemForOrder', order.id]">View Items</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-secondary mt-3" (click)="goBack()">Back</button>
+  </div>
+
+  <ng-template #noOrders>
+    <div class="alert alert-info" role="alert">
+      No orders found.
+    </div>
+  </ng-template>
+</div>

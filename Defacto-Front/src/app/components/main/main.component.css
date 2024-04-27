@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  width: 100%;
+}
+
+/* .side-nav {
+  width: 18%;
+  position: fixed;
+  top: 100px; /* Adjust based on your header height */
+/* bottom: 0;
+  left: 0;
+} */
+
+.side-nav-bar {
+  min-height: 90vh;
+}
+
+/* .main-content {
+  width: 82%;
+
+  padding-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .side-nav {
+    width: 15%;
+    position: static; /* Remove fixed positioning for smaller screens */
+/* top: auto;
+    bottom: auto;
+  }
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+  }
+} */

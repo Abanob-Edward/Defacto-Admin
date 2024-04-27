@@ -1,0 +1,38 @@
+<div class="container">
+  <form (ngSubmit)="addSize()" class="mt-4">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        [(ngModel)]="newSize.name"
+        name="name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="hex">code</label>
+      <input
+        type="text"
+        id="hex"
+        class="form-control"
+        [(ngModel)]="newSize.code"
+        name="hex"
+      />
+    </div>
+    <div class="form-group form-check">
+      <input
+        type="checkbox"
+        id="notActive"
+        class="form-check-input"
+        [(ngModel)]="newSize.notActive"
+        name="notActive"
+      />
+      <label class="form-check-label" for="notActive">Not Active</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Size</button>
+
+  </form>
+</div>
+

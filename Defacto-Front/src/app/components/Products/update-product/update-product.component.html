@@ -1,0 +1,188 @@
+<!-- <div class="container p-4">
+  <h5>Update Product</h5>
+  <form (ngSubmit)="updateProduct()" class="needs-validation" novalidate>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="product.title" name="title" required>
+      <div class="invalid-feedback">Please provide a title.</div>
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <select [(ngModel)]="product.productGender" name="gender" class="form-control" id="gender" required>
+        <option *ngFor="let gender of getGender()" [value]="gender.value">{{ gender.name }}</option>
+        <option product.productGender="null">None</option>
+      </select>
+      <div class="invalid-feedback">Please select a gender.</div>
+    </div>
+    <div class="form-group">
+      <label for="categoryId">Category</label>
+      <select [(ngModel)]="product.categoryId" name="categoryId" class="form-control" id="categoryId" required>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+      </select>
+      <div class="invalid-feedback">Please select a category.</div>
+    </div>
+    <div class="form-group">
+      <label for="code">Code</label>
+      <input type="text" class="form-control" id="code" [(ngModel)]="product.code" name="code" required>
+      <div class="invalid-feedback">Please provide a code.</div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" [(ngModel)]="product.description" name="description"
+        required></textarea>
+      <div class="invalid-feedback">Please provide a description.</div>
+    </div>
+    <div class="form-group mt-2">
+      <label for="productImage1">Product Image 1</label>
+      <input type="file" class="form-control-file m-2" id="productImage1" (change)="onFileSelected($event, 1)" required>
+      <div class="invalid-feedback">Please upload an image.</div>
+    </div>
+    <div class="form-group">
+      <label for="productImage2">Product Image 2</label>
+      <input type="file" class="form-control-file m-2" id="productImage2" (change)="onFileSelected($event, 2)" required>
+      <div class="invalid-feedback">Please upload an image.</div>
+    </div>
+    <div class="form-group">
+      <label for="productImage3">Product Image 3</label>
+      <input type="file" class="form-control-file m-2" id="productImage3" (change)="onFileSelected($event, 3)" required>
+      <div class="invalid-feedback">Please upload an image.</div>
+    </div>
+    <div class="form-group">
+      <label for="productImage4">Product Image 4</label>
+      <input type="file" class="form-control-file m-2" id="productImage4" (change)="onFileSelected($event, 4)" required>
+      <div class="invalid-feedback">Please upload an image.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+  <button class="btn btn-secondary mb-3 my-2" (click)="goBack()">Back</button>
+</div> -->
+
+<div class="container p-4">
+  <div class="">
+
+    <h5>Update Product</h5>
+  <form (ngSubmit)="updateProduct()" #ProductForm="ngForm">
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="title">Title</label>
+          <input #title="ngModel" type="text" class="form-control" id="title" [(ngModel)]="product.title" name="title" required>
+          <div class="alert alert-danger" *ngIf="title.invalid && (title.dirty || title.touched)">
+           <span *ngIf="title.errors?.['required']">
+             Title is required.
+           </span>
+       </div>
+       </div> <div class="form-group col-6">
+        <label for="title">Arabic Title</label>
+        <input #ar_Title="ngModel" type="text" class="form-control" id="ar_Title" [(ngModel)]="product.ar_Title" name="ar_Title" required>
+        <div class="alert alert-danger" *ngIf="ar_Title.invalid && (ar_Title.dirty || ar_Title.touched)">
+         <span *ngIf="ar_Title.errors?.['required']">
+          Arabic Title is required.
+         </span>
+     </div>
+     </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-6">
+      <label for="description">Description</label>
+      <textarea #Description="ngModel" required class="form-control" id="description" [(ngModel)]="product.description" name="description"
+         required></textarea>
+         <div class="alert alert-danger" *ngIf="Description.invalid && (Description.dirty || Description.touched)">
+          <span *ngIf="Description.errors?.['required']">
+            Description  is required.
+          </span>
+          </div>
+
+   </div>
+
+   <div class="form-group col-6">
+    <label for="description"> Arabic Description</label>
+    <textarea #ar_Description="ngModel" required class="form-control" id="ar_Description" [(ngModel)]="product.ar_Description" name="ar_Description"
+       required></textarea>
+       <div class="alert alert-danger" *ngIf="ar_Description.invalid && (ar_Description.dirty || ar_Description.touched)">
+        <span *ngIf="ar_Description.errors?.['required']">
+          Arabic  Description  is required.
+        </span>
+        </div>
+ </div>
+ </div>
+
+    <div class="row">
+      <div class="form-group col-6">
+         <label for="subCategory">Gender</label>
+         <select #Gender="ngModel"  [(ngModel)]="product.productGender" name="gender" class="form-control" id="gender" required>
+            <option *ngFor="let gender of getGender()" [value]="gender.value">{{ gender.name }}</option>
+            <option product.productGender="null">None</option>
+         </select>
+         <div class="alert alert-danger" *ngIf="Gender.invalid && (Gender.dirty || Gender.touched)">
+          <span *ngIf="Gender.errors?.['required']">
+            Gender is required.
+          </span>
+      </div>
+      </div>
+
+
+      <div class="form-group col-6">
+         <label for="categoryId">Category</label>
+         <select #Category="ngModel" [(ngModel)]="product.categoryId" name="categoryId" class="form-control" id="categoryId" required>
+            <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+         </select>
+         <div class="alert alert-danger" *ngIf="Category.invalid && (Category.dirty || Category.touched)">
+          <span *ngIf="Category.errors?.['required']">
+            Category  is required.
+          </span>
+          </div>
+      </div>
+    </div>
+      <div class="form-group">
+         <label for="code">Code</label>
+         <input #Code="ngModel" type="text" class="form-control" id="code" [(ngModel)]="product.code" name="code" required>
+         <div class="alert alert-danger" *ngIf="Code.invalid && (Code.dirty || Code.touched)">
+          <span *ngIf="Code.errors?.['required']">
+            Code  is required.
+          </span>
+          </div>
+      </div>
+
+      <!-- Image upload fields -->
+      <div class="row">
+        <div class="mt-3 d-flex ">
+          <div class="form-group col-md-6 mb-1">
+         <label class="m-2" for="productImage1">Image 1</label>
+         <input type="file" class="form-control-file " id="productImage1" (change)="onFileSelected($event, 1)" required>
+         <img *ngIf="selectedImageUrl1" [src]="selectedImageUrl1" alt="Selected Image 1" class="img-thumbnail ms-2" height="100px" width="100px">
+
+       </div>
+       <div class="form-group col-md-6 mb-1">
+         <label class="m-2" for="productImage2">Image 2</label>
+         <input type="file" class="form-control-file" id="productImage2" (change)="onFileSelected($event, 2)" required>
+         <img *ngIf="selectedImageUrl2" [src]="selectedImageUrl2" alt="Product Image 2" class="img-thumbnail ms-2" height="100px" width="100px">
+       </div>
+     </div>
+         </div>
+           <div class="row">
+             <div class="mt-3 d-flex">
+
+           <div class="form-group col-md-6 mb-1">
+
+             <label class="m-2" for="productImage3">Image 3</label>
+             <input type="file" class="form-control-file " id="productImage3" (change)="onFileSelected($event, 3)" required>
+             <img *ngIf="selectedImageUrl3" [src]="selectedImageUrl3" alt="Product Image 3" class="img-thumbnail ms-2" height="100px" width="100px">
+           </div>
+           <div class="form-group col-md-6 mb-1">
+
+             <label class="m-2" for="productImage4">Image 4</label>
+             <input type="file" class="form-control-file " id="productImage4" (change)="onFileSelected($event, 4)" required>
+             <img *ngIf="selectedImageUrl4" [src]="selectedImageUrl4" alt="Product Image 4" class="img-thumbnail ms-2" height="100px" width="100px">
+           </div>
+         </div>
+       </div>
+
+
+         <div class="mt-2 ">
+           <button [disabled]="!ProductForm.valid" type="submit" class="btn btn-success d-inline me-3 col-2">Update</button>
+
+           <button class="btn btn-secondary d-inline col-2 " (click)="goBack()">Back</button>
+         </div>
+       </form>
+</div>
+</div>

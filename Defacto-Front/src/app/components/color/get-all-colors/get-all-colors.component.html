@@ -1,0 +1,48 @@
+<div class="container pt-3">
+  <div class="card">
+     <div class="card-header">
+       <h3 class="card-title">Color List</h3>
+     </div>
+     <div class="card-body">
+       <table class="table table-striped">
+         <thead class="thead-dark">
+           <tr>
+             <th></th>
+             <th></th>
+             <th></th>
+             <th>Name</th>
+             <th>Hex</th>
+             <th></th>
+             <th></th>
+             <th></th>
+             <th></th>
+             <th></th>
+             <th></th>
+             <th></th>
+             <th>Action</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let color of colors">
+             <td></td>
+             <td></td>
+             <td></td>
+             <td>{{ color.name }}</td>
+             <td>  <span [style.background-color]="'#'+color.hex" style="display: inline-block; width: 20px; height: 20px; border-radius:50%"></span>
+                </td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td>
+               <button (click)="deleteColor(color.id)" class="btn btn-danger">Delete</button>
+             </td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+  </div>
+ </div>

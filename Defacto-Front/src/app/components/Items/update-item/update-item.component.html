@@ -1,0 +1,108 @@
+<!-- <form (ngSubmit)="updateItem()">
+   <div class="form-group">
+      <label for="size">Size</label>
+      <select class="form-control" id="size" [(ngModel)]="item.sizeID" name="size">
+         <option *ngFor="let size of sizes" [value]="size.id">{{ size.name }}</option>
+      </select>
+   </div>
+   <div class="form-group">
+      <label for="color">Color</label>
+      <select class="form-control" id="color" [(ngModel)]="item.colorID" name="color">
+         <option *ngFor="let color of colors" [value]="color.id">{{ color.name }}</option>
+      </select>
+   </div>
+   <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input type="number" class="form-control" id="quantity" [(ngModel)]="item.quantity" name="quantity">
+   </div>
+   <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" class="form-control" id="price" [(ngModel)]="item.price" name="price">
+   </div>
+   <br>
+   <button type="submit" class="btn btn-primary">Update Item</button>
+</form> -->
+
+<!-- <div class="container">
+   <form (ngSubmit)="updateItem()" class="row g-3 align-items-center">
+      <div class="form-group col-md-7">
+         <label for="size">Size</label>
+         <select class="form-control" id="size" [(ngModel)]="item.sizeID" name="size">
+            <option *ngFor="let size of sizes" [value]="size.id" >{{ size.name }}</option>
+         </select>
+      </div>
+      <div class="form-group col-md-7">
+         <label for="color">Color</label>
+         <select class="form-control" id="color" [(ngModel)]="item.colorID" name="color">
+            <option *ngFor="let color of colors" [value]="color.id">{{ color.name }}</option>
+         </select>
+      </div>
+      <div class="form-group col-md-7">
+         <label for="quantity">Quantity</label>
+         <input type="number" class="form-control" id="quantity" [(ngModel)]="item.quantity" name="quantity">
+      </div>
+      <div class="form-group col-md-7">
+         <label for="price">Price</label>
+         <input type="number" class="form-control" id="price" [(ngModel)]="item.price" name="price">
+      </div>
+      <div class="col-12">
+         <button type="submit" class="btn btn-primary">Update Item</button>
+      </div>
+   </form>
+   <button class="btn btn-secondary mb-3 my-2" (click)="goBack()">Back</button>
+</div> -->
+
+<div class="container p-5">
+   <form (ngSubmit)="updateItem()" #itemform="ngForm">
+    <div class="row">
+      <div class="form-group col-6">
+         <label class="my-3" for="size">Size</label>
+         <select  #Size="ngModel" required class="form-control" id="size" [(ngModel)]="item.sizeID" name="size">
+            <option *ngFor="let size of sizes" [value]="size.id" >{{ size.name }}</option>
+         </select>
+         <div class="alert alert-danger" *ngIf="Size.invalid && (Size.dirty || Size.touched)">
+          <span *ngIf="Size.errors?.['required']">
+            Size is required.
+          </span>
+      </div>
+      </div>
+      <div class="form-group col-6">
+
+         <label  class="my-3" for="color">Color</label>
+         <select required #Color="ngModel" class="form-control" id="color" [(ngModel)]="item.colorID" name="color">
+            <option *ngFor="let color of colors" [value]="color.id">{{ color.name }}</option>
+         </select>
+         <div class="alert alert-danger" *ngIf="Color.invalid && (Color.dirty || Color.touched)">
+          <span *ngIf="Color.errors?.['required']">
+            Color is required.
+          </span>
+      </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+         <label  class="my-3" for="quantity">Quantity</label>
+         <input #Quantity="ngModel" type="number" required class="form-control" id="quantity" [(ngModel)]="item.quantity" name="quantity">
+         <div class="alert alert-danger mt-3" *ngIf="Quantity.invalid && (Quantity.dirty || Quantity.touched)">
+          <span *ngIf="Quantity.errors?.['required']">
+            Quantity is required.
+          </span>
+      </div>
+    </div>
+      <div class="form-group col-md-6">
+         <label  class="my-3" for="price">Price</label>
+         <input #Price="ngModel" required type="number" class="form-control" id="price" [(ngModel)]="item.price" name="price">
+         <div class="alert alert-danger mt-3" *ngIf="Price.invalid && (Price.dirty || Price.touched)">
+          <span *ngIf="Price.errors?.['required']">
+            Price is required.
+          </span>
+      </div>
+    </div>
+
+      <div class="col-12 mt-5">
+        <button [disabled]="!itemform.valid" type="submit" class="btn btn-primary me-3 col-2">Update</button>
+    <button class="btn btn-secondary  col-2 " (click)="goBack()">Back</button>
+     </div>
+    </div>
+   </form>
+</div>

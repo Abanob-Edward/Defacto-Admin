@@ -1,0 +1,19 @@
+
+<div class="container">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let size of sizes">
+        <td>{{ size.name }}</td>
+        <td>
+           <button (click)="deleteSize(size.id)" class="btn btn-danger">Delete</button>
+        </td>
+       </tr>
+
+    </tbody>
+  </table>
+</div>

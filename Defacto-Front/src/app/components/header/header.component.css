@@ -1,0 +1,9 @@
+.avatar{
+  width: 50px;
+  height: 30px;
+  border-radius: 50%;
+}
+.headering{
+  background-color: black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

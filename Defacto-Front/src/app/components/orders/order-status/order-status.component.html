@@ -1,0 +1,18 @@
+<div class="container">
+  <form (ngSubmit)="updateOrder()" class="row g-3 align-items-center">
+    <div class="col-8">
+      <br><label for="status" class="form-label">
+        <h3>Status:</h3>
+      </label>
+      <select id="status" [(ngModel)]="status" name="status" required class="form-select">
+        <option *ngFor="let status of getOrderStatus()" [value]="status.value">
+          {{ status.name }}
+        </option>
+      </select>
+    </div>
+    <div class="col-4">
+      <br><br><br><button type="submit" class="btn btn-primary">Update Order Status</button>
+    </div>
+  </form>
+  <button class="btn btn-secondary mt-3" (click)="goBack()">Back</button>
+</div>

@@ -1,0 +1,65 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<div class="main">
+		<input type="checkbox" id="chk" aria-hidden="true">
+			<div class="signup">
+				<form>
+					<label for="chk" aria-hidden="true">Sign in</label>
+				</form>
+			</div>
+
+			<div class="login">
+				<form>
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" [(ngModel)]="loginObj.email" name="email" placeholder="Email" required="">
+					<input type="password" [(ngModel)]="loginObj.password" name="Password" placeholder="Password" required="">
+					<button (click)=onLogin()>Login</button>
+				</form>
+			</div>
+	</div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+	<div class="main">
+		<input type="checkbox" id="chk" aria-hidden="true">
+		<div class="signup">
+			<form>
+				<label for="chk" aria-hidden="true">Sign in</label>
+			</form>
+		</div>
+		<div class="login">
+			<form #loginForm="ngForm" (ngSubmit)="onLogin()">
+				<label for="chk" aria-hidden="true">Login</label>
+				<input type="email" #email1="ngModel" [(ngModel)]="loginObj.email" name="email" placeholder="Email"
+					id="email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+				<div class="alert alert-danger" *ngIf="email1.invalid && (email1.dirty || email1.touched)">
+					<span *ngIf="email1.errors?.['required']">Email is required.</span>
+					<span class="error" *ngIf="email1.errors?.['pattern']">Email is not valid.</span>
+
+				</div>
+
+				<input type="password" #password="ngModel" [(ngModel)]="loginObj.password" name="password"
+					placeholder="Password" required>
+				<div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+					<span *ngIf="password?.errors?.['required']">Password is required.</span>
+					<span *ngIf="password?.errors?.['passwordComplexity']">Password must contain numbers, uppercase and
+						lowercase letters, and special characters.</span>
+				</div>
+				<button type="submit">Login</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

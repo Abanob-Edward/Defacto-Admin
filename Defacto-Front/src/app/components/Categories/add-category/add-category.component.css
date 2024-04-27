@@ -1,0 +1,30 @@
+/* Hide the default file input */
+input[type="file"] {
+    display: none;
+}
+
+/* Style the label to look like a button */
+label[for="categoryImage"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #717171;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Change the background color on hover */
+label[for="categoryImage"]:hover {
+    background-color: #484848;
+}
+
+/* Style the image preview */
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    /* width: 100%;
+    height: auto; */
+}

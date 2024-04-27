@@ -1,0 +1,30 @@
+<div class="container">
+  <table class="table table-striped">
+     <thead>
+       <tr>
+         <th scope="col">Product Name</th>
+         <th scope="col">Quantity</th>
+         <th scope="col">Price</th>
+         <th scope="col">Size</th>
+         <th scope="col">Color</th>
+         <th class="actions-column" colspan="2">Actions</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="let item of items">
+         <td>{{ getProductTitle(item.productID) }}</td>
+         <td>{{ item.quantity }}</td>
+         <td>{{ item.price }}</td>
+         <td>{{ item.sizeName }}</td>
+         <td>{{ item.colorName }}</td>
+         <td class="actions-column">
+           <div class="d-flex justify-content-around">
+             <button class="btn btn-primary" [routerLink]="['/UpdateItem', item.id]"
+               [state]="{ item: item }">Update</button>
+           </div>
+         </td>
+       </tr>
+     </tbody>
+  </table>
+ </div>
+ 
